@@ -1,13 +1,12 @@
-import React, {useReducer} from 'react';
-import Reducer      from './context/reducer';
+import React, {useReducer}    from 'react';
+import Reducer                from './context/reducer';
 import {
   LOGIN,
-  TEST
-}                   from './context/types';
-import Context from './context/context.js';
+}                             from './context/types';
+import Context                from './context/context.js';
 import {BrowserRouter, Route} from 'react-router-dom';
-import Login from './components/Login';
-import Test from './components/Test';
+import Login                  from './components/Login';
+import Test                   from './components/Test';
 
 
 const App = () => {
@@ -24,20 +23,12 @@ const App = () => {
     })
   }
 
-  const testLog = (arg) => {
-    dispatch({
-      type: TEST,
-      payload: arg
-    })
-  }
-
   return (
     <Context.Provider
       value={{
         loggedIn: state.loggedIn,
         user: state.user,
         login,
-        testLog
       }}
     >
        <BrowserRouter>
