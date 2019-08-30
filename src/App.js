@@ -2,8 +2,6 @@ import React, {useReducer}    from 'react';
 import Reducer                from './context/reducer';
 import {
   LOGIN,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR
 }                             from './context/types';
 import Context                from './context/context.js';
 import {BrowserRouter, Route} from 'react-router-dom';
@@ -13,6 +11,7 @@ import Test                   from './components/Test';
 
 const App = () => {
   const initialState = {
+    loginLoading: false,
     loggedIn: false,
     user: {
       username: '',

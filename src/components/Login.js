@@ -13,15 +13,16 @@ import {login} from '../utils';
 
 const Login = () => {
   const context = useContext(Context);
-
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     username: '',
     password: ''
   });
+  const [error, setError] = useState();
 
   const onSubmit = async e => {
     e.preventDefault();
+    setError();
     setLoading(true);
     try {
       await login(user);
@@ -29,7 +30,8 @@ const Login = () => {
       setLoading(false);
     }
     catch(error) {
-      console.log('error');
+      setError('Error logging in');
+      setLoading(false);
     }
   }
 
@@ -56,6 +58,7 @@ const Login = () => {
             onChange={(e) => setUser({...user, password: e.target.value})}
           />
         </Form.Group>
+        {error && <p style={{color: 'red'}}>{error}</p>}
         <Button type="submit" disabled={loading}>
           {loading ? 'Logging in': 'Log In'}
         </Button>

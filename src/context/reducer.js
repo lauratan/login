@@ -1,7 +1,5 @@
 import {
   LOGIN,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR
 } from './types';
 
 const login = (credentials, state) => {
@@ -9,7 +7,6 @@ const login = (credentials, state) => {
   console.log(credentials);
   return {...state}
 }
-
 
 export default (state, action) => {
   switch(action.type){
