@@ -1,4 +1,8 @@
-import { LOGIN } from './types';
+import {
+  LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR
+} from './types';
 
 const login = (credentials, state) => {
   console.log('logging in');
