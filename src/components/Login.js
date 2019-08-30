@@ -8,6 +8,8 @@ import {
   Form
 }              from 'react-bootstrap';
 import Context from '../context/context.js';
+import {login} from '../utils';
+
 
 const Login = () => {
   const context = useContext(Context);
@@ -22,11 +24,12 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await context.login(user)
+      await login(user);
+      console.log('logged in');
       setLoading(false);
     }
     catch(error) {
-      console.log(error);
+      console.log('error');
     }
   }
 
